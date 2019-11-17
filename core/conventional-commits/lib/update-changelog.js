@@ -19,13 +19,7 @@ function updateChangelog(pkg, type, { changelogPreset, rootPath, tagPrefix = "v"
     const context = {}; // pass as positional because cc-core's merge-config is wack
 
     // cc-core mutates input :P
-    if (config.conventionalChangelog) {
-      // "new" preset API
-      options.config = Object.assign({}, config.conventionalChangelog);
-    } else {
-      // "old" preset API
-      options.config = Object.assign({}, config);
-    }
+    options.config = Object.assign({}, config);
 
     // NOTE: must pass as positional argument due to weird bug in merge-config
     const gitRawCommitsOpts = Object.assign({}, options.config.gitRawCommitsOpts);
